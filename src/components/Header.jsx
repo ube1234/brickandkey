@@ -55,7 +55,7 @@ const Header = ({ setFilters }) => {
           <div className="flex items-center">
             <img
               src="images/logo.png"
-              alt="Brick and Key"
+              alt="Brick & Key"
               className="h-8 cursor-pointer"
               onClick={() => window.location.hash = '/'}
             />
@@ -81,7 +81,7 @@ const Header = ({ setFilters }) => {
           <div className="fixed top-16 left-0 w-full bg-white shadow-lg rounded-b-xl z-[9999] flex flex-col items-center py-4 space-y-2 pointer-events-auto md:hidden" style={{ position: 'fixed' }}>
             <a href="#home" onClick={() => handleMenuNav('#home')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Home</a>
             <a href="#about" onClick={() => handleMenuNav('#about')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">About</a>
-            
+
             <a href="#contact" onClick={() => handleMenuNav('#contact')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Blogs</a>
             <a href="#contact" onClick={() => handleMenuNav('#contact')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600">Contact</a>
           </div>
@@ -103,17 +103,17 @@ const Header = ({ setFilters }) => {
             <a href="#contact" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Blogs</a>
             <a href="#contact" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Contact</a>
             <div className="mr-2">
-            <button
-              className="text-gray-600 hover:text-blue-600 focus:outline-none"
-              aria-label="Search"
-              onClick={() => setShowSearch(s => !s)}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-              </svg>Search
-            </button>
+              <button
+                className="text-gray-600 hover:text-blue-600 focus:outline-none"
+                aria-label="Search"
+                onClick={() => setShowSearch(s => !s)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                </svg>Search
+              </button>
 
-          </div>
+            </div>
           </nav>
         </div>
       </div>
