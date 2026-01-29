@@ -5,15 +5,14 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -21,25 +20,15 @@ jobs:
           lfs: false
 
       - name: Build And Deploy
-        id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
-          CI: false   # 🔴 CRITICAL FIX
+          CI: false
         with:
+          # Token is ONLY required on push to main
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_THANKFUL_OCEAN_04FF92A1E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          action: upload
           app_location: "/"
           api_location: ""
           output_location: "build"
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_THANKFUL_OCEAN_04FF92A1E }}
-          action: "close"
+          skip_deploy_on_missing_secrets: true

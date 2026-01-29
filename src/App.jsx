@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-gradient-to-tr from-gray-50 via-blue-100 to-white min-h-screen scroll-smooth">
+      <div className="bg-gradient-to-tr from-gray-50 via-blue-100 to-white min-h-screen scroll-smooth overflow-x-hidden">
         <Header filters={filters} setFilters={setFilters} />
         <Routes>
           <Route

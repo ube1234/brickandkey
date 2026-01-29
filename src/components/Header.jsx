@@ -45,12 +45,14 @@ const Header = ({ setFilters }) => {
       <div className="container mx-auto px-2 md:px-4 overflow-x-hidden">
         {/* Mobile Navbar */}
         <div className="flex items-center w-full justify-between md:hidden">
-          <button className="mr-2 order-1" onClick={() => setShowMenu(s => !s)}>
+
+          <button className="ml-2" onClick={() => setShowMenu(s => !s)}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
-          <div className="flex items-center order-2 ml-auto">
+
+          <div className="flex items-center">
             <img
               src="images/logo.png"
               alt="Brick and Key"
@@ -58,21 +60,34 @@ const Header = ({ setFilters }) => {
               onClick={() => window.location.hash = '/'}
             />
           </div>
+
+
+          <div className="flex items-center space-x-4 mr-2">
+            <button
+              className="text-gray-600 hover:text-blue-600 focus:outline-none"
+              aria-label="Search"
+              onClick={() => setShowSearch(s => !s)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+              </svg>Search
+            </button>
+
+          </div>
+
         </div>
         {/* Mobile nav dropdown */}
         {showMenu && (
           <div className="fixed top-16 left-0 w-full bg-white shadow-lg rounded-b-xl z-[9999] flex flex-col items-center py-4 space-y-2 pointer-events-auto md:hidden" style={{ position: 'fixed' }}>
             <a href="#home" onClick={() => handleMenuNav('#home')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Home</a>
             <a href="#about" onClick={() => handleMenuNav('#about')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">About</a>
-            <a href="#services" onClick={() => handleMenuNav('#services')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Web Development</a>
-            <a href="#portfolio" onClick={() => handleMenuNav('#portfolio')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Digital Marketing</a>
-            <a href="#contact" onClick={() => handleMenuNav('#contact')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Portfolio</a>
+            
             <a href="#contact" onClick={() => handleMenuNav('#contact')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600 border-b">Blogs</a>
             <a href="#contact" onClick={() => handleMenuNav('#contact')} className="block w-full text-center py-2 text-gray-600 hover:text-blue-600">Contact</a>
           </div>
         )}
         {/* Desktop Navbar */}
-        <div className="hidden md:flex items-center justify-between w-full">
+        <div className="hidden md:flex items-center justify-between w-full p-2">
           <div className="flex items-center">
             <img
               src="images/logo.png"
@@ -84,11 +99,21 @@ const Header = ({ setFilters }) => {
           <nav className="flex-1 flex justify-evenly items-center space-x-2 md:space-x-8">
             <a href="#home" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Home</a>
             <a href="#about" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">About</a>
-            <a href="#services" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Web Development</a>
-            <a href="#portfolio" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Digital Marketing</a>
-            <a href="#contact" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Portfolio</a>
+
             <a href="#contact" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Blogs</a>
             <a href="#contact" className="text-gray-600 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Contact</a>
+            <div className="mr-2">
+            <button
+              className="text-gray-600 hover:text-blue-600 focus:outline-none"
+              aria-label="Search"
+              onClick={() => setShowSearch(s => !s)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+              </svg>Search
+            </button>
+
+          </div>
           </nav>
         </div>
       </div>
@@ -204,18 +229,7 @@ const Header = ({ setFilters }) => {
 
         </div>
       )}
-      <div className="flex items-center space-x-4 ml-4">
-        <button
-          className="text-gray-600 hover:text-blue-600 focus:outline-none"
-          aria-label="Search"
-          onClick={() => setShowSearch(s => !s)}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-          </svg>Search
-        </button>
 
-      </div>
     </header>
   )
 }
