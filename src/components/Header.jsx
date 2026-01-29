@@ -44,7 +44,7 @@ const Header = ({ setFilters }) => {
     <header className={`bg-white/60 backdrop-blur-sm shadow-sm sticky top-0 z-50 transition-transform duration-500 ${hidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'} bg-blue-50 overflow-x-hidden`}>
       <div className="container mx-auto px-2 md:px-4 overflow-x-hidden">
         {/* Mobile Navbar */}
-        <div className="flex items-center w-full justify-between md:hidden">
+        <div className="flex items-center w-full justify-between md:hidden p-2">
 
           <button className="ml-2" onClick={() => setShowMenu(s => !s)}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
